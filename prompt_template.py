@@ -9,7 +9,8 @@ model = ChatOpenAI()
 # detailed way
 template2 = PromptTemplate(
     template='Greet this person in 5 languages. The name of the person is {name}',
-    input_variables=['name']
+    input_variables=['name'],
+    validate_template=True
 )
 
 # fill the values of the placeholders
@@ -18,4 +19,5 @@ prompt = template2.invoke({'name':'nitish'})
 result = model.invoke(prompt)
 
 print(result.content)
+
 
