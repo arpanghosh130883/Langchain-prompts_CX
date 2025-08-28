@@ -19,4 +19,11 @@ while True:
     chat_history.append(AIMessage(content=result.content))
     print("AI: ",result.content)
 
+
 print(chat_history)
+
+# Save chat history to a text file
+with open("chat_history.txt", "w", encoding="utf-8") as f:
+    for msg in chat_history:
+        role = msg.__class__.__name__.replace("Message", "")
+        f.write(f"{role}: {msg.content}\n")
